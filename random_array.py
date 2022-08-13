@@ -6,7 +6,8 @@ List=["박준표"
 ,"엄형규"
 ,"정재훈"
 ,"차은혁"
-,"황호선"]
+,"황호선"
+,"1","2"]
 
 
 root=tk.Tk()
@@ -15,7 +16,7 @@ cvs.pack()
 def click(e):
     random.shuffle(List)
     cvs.delete("PP")
-    for i in range(6):
+    for i in range(8):
         cvs.create_text(50+80*(i%6),50+50*(i//6),text=List[i],font=("굴림체",15),fill="black",tag="PP")
 
 root.bind("<Button>",click)
