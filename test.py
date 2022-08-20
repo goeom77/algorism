@@ -1,26 +1,22 @@
-def dfs(graph, start_node):
-    visit = list()
-    stack = list()
+N, M = map(int, input().split())
+lst = [list(input()) for _ in range(N)]
+mm = min(N, M)
+MM = max(N, M)
+if mm == M:
+    lst = list(zip(*lst))
+result = 1
+temp = False
+for j in range(0, mm - 1):
+    size = mm - j
+    for k in range(MM - j + 1):
+        for x in range(mm -j +1):
+            if lst[k][x] == lst[k + mm - j -1][x] == lst[k][x + mm - j -1] == lst[k + mm - j -1][x + mm - j -1]:
+                result = mm - j
+                temp = True
+                break
+        if temp == True:
+            break
+    if temp == True:
+        break
 
-    stack.append(start_node)
-
-    while stack:
-        node = stack.pop(0)  
-        if node not in visit:          
-            visit.append(node)
-            stack.extend(graph[node])
-
-
-    return visit
-
-graph = {
-        1: [2, 3],
-        2: [1, 4, 5],
-        3: [1, 7],
-        4: [2, 6],
-        5: [2, 6],
-        6: [4, 5, 7],
-        7: [3, 6]
-        }
-
-print(dfs(graph, 1))
+print(result * result)

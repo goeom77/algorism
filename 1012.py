@@ -1,14 +1,9 @@
-T=2
-m,n,num = map(int,input().split())
+T = int(input())
 
-count = 0
-a=[]
-for k in range(m):
-    a.append([0]*n)
-for i in range(num):
-    x,y = map(int,input().split())
-    a[x][y] = 1
-for xx in range(1,m):
-    for yy in range(1, n):
-        if a[xx][yy] == 1:
-            if a
+for t in range(1,T+1):
+    m,n,tc = map(int(input()))
+    ground = [[0]*m for _ in range(n)]
+    for c in range(tc):
+        a,b = map(int(input()))
+        ground[b][a] = 1
+    
