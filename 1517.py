@@ -1,7 +1,13 @@
 import sys
-from collections import defaultdict
+from tkinter import N
+
 num = int(input())
 arr = sys.stdin.readline().rstrip().split()
-arr_dict = {}
-arr_dict = defaultdict(arr)
-print(arr_dict)
+n = len(arr)
+search = 0
+for i in range(n):
+    search += (int(arr[i])-i-1)
+    print(search)
+print(search)
+
+
