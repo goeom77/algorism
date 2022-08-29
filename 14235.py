@@ -21,6 +21,3 @@ for t in range(T):
         for i in range(a[0]):
             # 선물의 개수만큼 최대 힙을 통해 값 부여
             heapq.heappush(h, (-a[i + 1], a[i + 1]))
-        
-
-        
