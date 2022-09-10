@@ -1,31 +1,39 @@
-# 땅에 자라는 참외 개수
-from collections import deque
-t = int(input())
-# v = 동 1 서 2 남 3 북 4
-a = []
-b = []
-# a는 방향의 리스트 b는 거리의 리스트
-for i in range(6):
-    v, r = map(int, input().split())
-    a.append(v)
-    b.append(r)
-# fa가 1개인 것들 -> 그것들의 index를 삭제해서 중간값들의 크기를 빼주면된다.
-fa = []
-b = deque(b)
-for i in range(1, 5):
-    if a.count(i) == 1:
-        fa.append(i)
-fb = a.index(fa[0])
-fc = a.index(fa[1])
-# 회전 필요량
-if abs(fb-fc) == 1:
-    lo = -min(fb,fc)
-else:
-    lo = 1
-# 회전이 1차이날때는 작은값만큼 돌리고 처음과 끝에 있을 때는 1만큼 돌려서 제일 앞으로 위치시킨다.
-b.rotate(lo)
-m = b.popleft()
-n = b.popleft()
-result = abs((m * n) - (b[1] * b[2]))
+# 별찍기 - 10
+# n만큼 패턴 반복
+n = int(input())
+t = n
+arr = [[0]*n for _ in range(n)]
+n //= 3
+a = 0
+b = 0
+def pattern(a,b,n):
+    global arr
+    if n == 1:
+        for ii in range(3):
+            for jj in range(3):
+                if ii != 1 or jj != 1:
+                    ai = a + ii
+                    bj = b + jj
+                    arr[bj][ai] = 1
+        return
+    else:
+        m = n//3
+        for i in range(0,3*n,n):
+            for j in range(0,3*n,n):
+                if j != n or i != n:
+                    ai = a + i
+                    bj = b + j
+                    arr[bj][ai] = 1
+        return pattern(a,b,m), pattern(a+n,b,m), pattern(a+2*n,b,m),pattern(a,b+n,m),pattern(a,b+2*n,m),pattern(a+2*n,b,m),pattern(a+n,b+2*n,m),pattern(a+2*n,b+2*n,m),pattern(a+2*n,b+n,m)
+pattern(a,b,n)
+for j in range(t):
+    for i in range(t):
+        if arr[j][i]== 1:
+            arr[j][i] = "*"
+        else:
+            arr[j][i] = ' '
+for i in range(t):
+    print(*arr[i],sep='')
 
-print(result * t)
+
+
