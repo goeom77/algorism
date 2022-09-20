@@ -1,3 +1,1 @@
-a = ''
-b = a +'2'
-print(b)
+print(len(list(set([1,2,1,3]))))
