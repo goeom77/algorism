@@ -3,5 +3,10 @@
 # 최소의 강의실로 모든 수업 가능하게 s==T같으면 수업 가능
 n = int(input())
 # 1~200000
-for i in range(n):
+q = []
+for i in range(n): 
     s, t = map(int, input().split())
+    q.append((t,s))
+q.sort()
+
+

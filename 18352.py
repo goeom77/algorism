@@ -1,14 +1,16 @@
 # 특정 거리의 도시 찾기
 # n번 까지 도시, m개의 도로 존재
 # x에서 출발해 최단거리가 k인 도시 번호 출력
-n,m,k,x = map(int, input().split())
+import sys
+
+n,m,k,x = map(int, sys.stdin.readline().split())
 graph = [[] for _ in range(n+1)]
 visited = [False] * (n+1)
 INF = int(1e8)
 distance = [INF]*(n+1)
 
 for i in range(m):
-    s, a = map(int, input().split())
+    s, a = map(int, sys.stdin.readline().split())
     graph[s].append(a) # s -> a 로 가는 비용은 1
 
 def get_smallest_node():
