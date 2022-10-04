@@ -21,17 +21,17 @@ while True:
         for dj, di in [[0,1],[0,-1],[1,0],[-1,0]]:
             nj = dj + j
             ni = di + i
-            if nj<0 or nj>=n or ni<0 or ni>=m or visited[nj][ni]:
+            if nj<0 or nj>=n or ni<0 or ni>=m or visited[nj][ni]== 5:
                 continue
-            elif arr[nj][ni] == 1:
+            if arr[nj][ni] == 1:
                 visited[nj][ni] += 1
                 if visited[nj][ni] >= 2:
-                    print(nj,ni)
+                    melt.append((nj,ni))
                 continue
-            visited[nj][ni] = 1
+            visited[nj][ni] = 5
             ck += 1
             q.append((nj,ni))
     if ck == n*m:
         break
-print(cnt)
+print(cnt-1)
     
