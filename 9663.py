@@ -8,7 +8,7 @@ def put(j): # 행이 하나씩 내려간다면
     if j == n: # 모든 행이 종료되면
         result += 1
         return
-    for i in range(1,n-1): # 앞에서 부터 한개씩 배치
+    for i in range(n): # 앞에서 부터 한개씩 배치
         chess[j] = i # 세로로 두는것을 방지 세로의 j를 인덱스
         ck = True
         for k in range(j): # 앞에 있는 행을 비교했을 때
