@@ -8,6 +8,28 @@
 # 크기와 합이 같은 크기를 먹으면 크기 1증가
 # 이동 1당 1초 소모
 # n 2~20
+
+def where_shark():
+    global n
+    for j in range(n):
+        for i in range(n):
+            if sea[j][i] == 9:
+                return i,j
+
+def where_food(i,j,k):
+    global n
+    time = 40
+    rj = 20
+    ri = 20
+    for nj in range(n):
+        for ni in range(n):
+            if sea[nj][ni] <= n:
+                if abs(nj-j)+abs(ni-i) < time:
+                    rj = j
+                    ri = i
+                elif abs(nj-j)+abs(ni-i) == time:
+                    if r  
+
 n = int(input())
 # 9는 아기 상어 위치
 # 1,2,3,4,5,6 물고기 크기
