@@ -12,7 +12,7 @@ def put(j): # 행이 하나씩 내려간다면
         chess[j] = i # 세로로 두는것을 방지 세로의 j를 인덱스
         ck = True
         for k in range(j): # 앞에 있는 행을 비교했을 때
-            if chess[j] == chess[k] or abs(chess[j]-chess[k]) == abs(j-k):# 행에 열이 같거나 대각선으로 만나는 경우
+            if chess[k] == chess[j] or abs(chess[j]-chess[k]) == abs(j-k):# 행에 열이 같거나 대각선으로 만나는 경우
                 ck = False
                 break
         if ck:

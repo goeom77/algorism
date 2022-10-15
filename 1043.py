@@ -9,16 +9,25 @@ n, m = map(int, input().split())
 # 진실아는 사람수와 번호 0~50
 tr, *tr_num = map(int, input().split())
 # 진실아는 사람이 party_num에 있으면 진실말해야하는 사람이 늘어나는 것!
-tru_list = [0]*51
+tru_list = [0]*(n+1)
 for i in range(tr):
     tru_list[tr_num[i]] = 1
 all_party = []
 for i in range(m): # 1~50
-    party, *party_num = map(int, input().split())
-    for j in party_num:
-        if tru_list[j] == 1:
-            for j in party_num:
-                tru_list[j] = 1
-            break
-        # 한개라도 밑에 숫자가 있으면 그 숫자의 묶음은 전부 tru_list에 넣고 전부 비교해야된다.
-    all_party.append(party_num)
+    party_num, *party = map(int, input().split())
+    all_party.append(party)
+visited = [0]*m
+def check():
+    for i in range(m):
+        if visited[i]:
+            continue
+        for j in all_party[i]:
+            if tru_list[j] == 1:
+                for k in all_party[i]:
+                    tru_list[k] = 1
+                visited[i] = 1
+                return check()
+check()
+print(m-sum(visited))
+            
+    
